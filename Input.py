@@ -5,7 +5,7 @@ from pyglet.window import mouse
 clearSound = pyglet.resource.media('rocket_locking_beep1.wav', streaming=False)
 
 mousePos = {'x': 0, 'y': 0}
-window = pyglet.window.Window()
+window = pyglet.window.Window(caption="Input Demo")
 batch = pyglet.graphics.Batch()
 
 def randomComponent():
@@ -33,11 +33,10 @@ def on_mouse_motion(x, y, dx, dy):
 	mousePos = {'x': x, 'y': y}
 
 @window.event
-def on_key_press(symbol, modifiers):
+def on_text(msg):
 	global batch
-	msg = key.symbol_string(symbol)
 	label(msg, mousePos['x'], mousePos['y'])
-	if symbol == key.SPACE:
+	if msg == ' ':
 		#clear the screen
 		batch = pyglet.graphics.Batch()
 		clearSound.play()
