@@ -1,0 +1,1 @@
+install Python 2.6 and Pyglet to run demos.
